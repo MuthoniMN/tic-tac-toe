@@ -43,13 +43,8 @@ function checkWin(arr) {
 
 function checkRow(arr) {
     let value = arr.reduce((acc, c) => {
-        if(acc === c ){
-            acc = c
-        }else{
-            return false
-        }
+       return acc === c ? acc : false
     })
-    
-    return true
+    return value
 }
-console.log(checkRow(['A', 'C', 'A'])); 
+console.log(checkRow(['A', 'A', 'A'])); 
