@@ -39,9 +39,29 @@ function checkWin(arr) {
     let top = arr.slice(2)
     let middle = arr.slice(3,5)
     let bottom = arr.slice(-3)
+    
+    let topWin = checkRow(top)
+    let middleWin = checkRow(middle)
+    let bottomWin = checkRow(bottom)
 
-    if(!(checkRow(top) || checkRow(middle) || checkRow(bottom))){
-
+    if(!(topWin || middleWin || bottomWin)){
+        if (!(checkColumns(top, middle, bottom))) {
+            if ((checkDiagonal(top, middle, bottom))) {
+                getRandomChoice(arr, choice)
+            }
+        }
+    }else{
+        if(topWin){
+            return topWin
+        }else if(middleWin){
+            return middleWin
+        }else if(bottomWin){
+            return bottomWin
+        }else if (checkColumns(top, middle, bottom)) {
+            return checkColumns(top, middle, bottom)
+        }else if (checkDiagonal(top, middle, bottom)) {
+            return checkDiagonal(top, middle, bottom)
+        }
     }
 }
 
@@ -62,3 +82,18 @@ function checkColumns(a, b, c) {
 }
 
 console.log(checkColumns(['A', 'B'], ['A', 'C'], ['A', 'D'])); 
+
+function checkDiagonal(a, b, c) {
+    if((a[0] === b[1] && a[0] === c[2]) || (a[2] === b[1] && a[2] === c[0])){
+        return a[0]
+    }
+}
+console.log(checkDiagonal(['A', 'B', 'D'], ['B', 'A', 'C'], ['A', 'D', 'A'])); 
+
+function declareWinner(winner, player2) {
+    if (winner === player2) {
+        return 'YOU LOST😓'
+    }else{
+        return 'YOU WON!!!!!🎊🎉'
+    }
+}
