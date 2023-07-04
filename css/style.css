@@ -31,4 +31,20 @@ input{
     margin: 0;
     font-size: 42px;
     text-align: center;
+    text-transform: uppercase;
+}
+
+section + div{
+    position: absolute;
+    bottom: 24px;
+    right: 32px;
+    width: 250px;
+    padding: 0 24px;
+    text-align: left;
+    background-color: black;
+    color: white;
+}
+
+.noDisplay{
+    display: none;
 }
