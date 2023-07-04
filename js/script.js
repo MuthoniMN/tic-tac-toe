@@ -39,6 +39,10 @@ function checkWin(arr) {
     let top = arr.slice(2)
     let middle = arr.slice(3,5)
     let bottom = arr.slice(-3)
+
+    if(!(checkRow(top) || checkRow(middle) || checkRow(bottom))){
+
+    }
 }
 
 function checkRow(arr) {
@@ -48,3 +52,13 @@ function checkRow(arr) {
     return value
 }
 console.log(checkRow(['A', 'A', 'A'])); 
+
+function checkColumns(a, b, c) {
+    for (let i = 0; i < a.length; i++) {
+        if(a[i] === b[i] && a[i] === c[i]){
+            return a[i]
+        }
+    }
+}
+
+console.log(checkColumns(['A', 'B'], ['A', 'C'], ['A', 'D'])); 
